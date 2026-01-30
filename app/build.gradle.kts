@@ -3,6 +3,10 @@ plugins {
     alias(libs.plugins.kotlin.compose)
 }
 
+// Check if keystore exists for release signing
+val keystoreFile = file("../karsu-release-key.jks")
+val keystoreExists = keystoreFile.exists()
+
 android {
     namespace = "com.karsu.pandafabsmenu"
     compileSdk {
@@ -10,11 +14,13 @@ android {
     }
 
     signingConfigs {
-        create("release") {
-            storeFile = file("../karsu-release-key.jks")
-            storePassword = "karsu123"
-            keyAlias = "karsu"
-            keyPassword = "karsu123"
+        if (keystoreExists) {
+            create("release") {
+                storeFile = keystoreFile
+                storePassword = System.getenv("KEYSTORE_PASSWORD") ?: "karsu123"
+                keyAlias = System.getenv("KEY_ALIAS") ?: "karsu"
+                keyPassword = System.getenv("KEY_PASSWORD") ?: "karsu123"
+            }
         }
     }
 
@@ -31,7 +37,10 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            signingConfig = signingConfigs.getByName("release")
+            // Only use release signing if keystore exists
+            if (keystoreExists) {
+                signingConfig = signingConfigs.getByName("release")
+            }
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
