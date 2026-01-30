@@ -8,6 +8,15 @@ android {
         version = release(36)
     }
 
+    signingConfigs {
+        create("release") {
+            storeFile = file("../karsu-release-key.jks")
+            storePassword = "karsu123"
+            keyAlias = "karsu"
+            keyPassword = "karsu123"
+        }
+    }
+
     defaultConfig {
         applicationId = "com.karsu.pandafabsmenu"
         minSdk = 30
@@ -21,6 +30,7 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
+            signingConfig = signingConfigs.getByName("release")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
