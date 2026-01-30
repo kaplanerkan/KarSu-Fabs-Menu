@@ -38,17 +38,23 @@ https://github.com/user-attachments/assets/3ce0be38-edaa-4915-9990-c1ee526052bc
 
 ## Installation
 
-### Gradle
+### Gradle (Maven Central)
 
-Add the library module to your project:
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.kaplanerkan/karsu-fabs-menu.svg)](https://central.sonatype.com/artifact/io.github.kaplanerkan/karsu-fabs-menu)
+
+Add the dependency to your app's `build.gradle.kts`:
+
+```kotlin
+dependencies {
+    implementation("io.github.kaplanerkan:karsu-fabs-menu:1.1.0")
+}
+```
+
+Or for Groovy (`build.gradle`):
 
 ```groovy
-// settings.gradle.kts
-include(":pandafablibrary")
-
-// app/build.gradle.kts
 dependencies {
-    implementation(project(":pandafablibrary"))
+    implementation 'io.github.kaplanerkan:karsu-fabs-menu:1.1.0'
 }
 ```
 
