@@ -1,5 +1,9 @@
 # KarSu FABs Menu
 
+> **What is KarSu?** KarSu is my little angel. :-)
+>
+> ![KarSu](screenshots/karsu.png)
+
 A beautiful, customizable Floating Action Button (FAB) menu library for Android with Material Design 3 support. Create expandable FAB menus with smooth animations, title labels, and overlay effects.
 
 **Now with Jetpack Compose support!** 🎉
