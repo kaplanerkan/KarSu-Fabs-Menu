@@ -4,15 +4,15 @@ import android.content.Context
 import android.util.DisplayMetrics
 
 /**
- * Boyut dönüşüm yardımcı sınıfı.
+ * Dimension conversion utility class.
  *
- * Bu utility sınıfı, dp (density-independent pixels) ve px (pixels) arasında
- * dönüşüm yapmak için kullanılır. Android'de farklı ekran yoğunluklarında
- * tutarlı görünüm sağlamak için dp değerlerinin piksel değerlerine
- * dönüştürülmesi gerekir.
+ * This utility class is used for converting between dp (density-independent pixels)
+ * and px (pixels). In Android, dp values need to be converted to pixel values
+ * to ensure consistent appearance across different screen densities.
  *
  * @author Erkan Kaplan
  * @since 1.0.0
+ * @date 2026-01-30
  */
 internal object DimensionUtils {
 

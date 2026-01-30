@@ -1,21 +1,22 @@
 package karsu.libs.fabsmenu.enums
 
 /**
- * FAB menüsünün açılma yönünü belirleyen enum sınıfı.
+ * Enum class that defines the expand direction of the FAB menu.
  *
- * Bu enum, KarSuFabsMenu bileşeninin hangi yöne doğru genişleyeceğini tanımlar.
- * Menü butonuna tıklandığında, alt FAB butonları bu yönde animasyonlu olarak açılır.
+ * This enum defines which direction the KarSuFabsMenu component will expand.
+ * When the menu button is clicked, the child FAB buttons animate open in this direction.
  *
- * Kullanılabilir yönler:
- * - [UP]: Yukarı doğru açılır (varsayılan, ekranın alt kısmındaki menüler için ideal)
- * - [DOWN]: Aşağı doğru açılır (ekranın üst kısmındaki menüler için ideal)
- * - [LEFT]: Sola doğru açılır (ekranın sağ kısmındaki menüler için ideal)
- * - [RIGHT]: Sağa doğru açılır (ekranın sol kısmındaki menüler için ideal)
+ * Available directions:
+ * - [UP]: Expands upward (default, ideal for menus at the bottom of the screen)
+ * - [DOWN]: Expands downward (ideal for menus at the top of the screen)
+ * - [LEFT]: Expands to the left (ideal for menus on the right side of the screen)
+ * - [RIGHT]: Expands to the right (ideal for menus on the left side of the screen)
  *
- * NOT: LEFT ve RIGHT yönlerinde etiketler (labels) gösterilmez.
+ * NOTE: Labels are not displayed in LEFT and RIGHT directions.
  *
  * @author Erkan Kaplan
  * @since 1.0.0
+ * @date 2026-01-30
  */
 enum class ExpandDirection {
     UP, DOWN, LEFT, RIGHT;

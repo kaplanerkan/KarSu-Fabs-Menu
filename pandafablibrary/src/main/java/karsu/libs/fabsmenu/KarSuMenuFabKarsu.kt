@@ -7,28 +7,28 @@ import android.net.Uri
 import android.util.AttributeSet
 
 /**
- * FAB menüsünün ana buton bileşeni.
+ * Main button component of the FAB menu.
  *
- * Bu sınıf, [KarSuFabsMenu] içindeki ana menü butonunu temsil eder.
- * Kullanıcı bu butona tıkladığında menü açılır veya kapanır.
- * [KarsuTitleFab] sınıfından türetilmiştir ancak etiket (title) özelliği
- * devre dışı bırakılmıştır.
+ * This class represents the main menu button within [KarSuFabsMenu].
+ * When the user taps this button, the menu opens or closes.
+ * It is derived from [KarsuTitleFab] but the title feature is disabled.
  *
- * Özellikler:
- * - Menü açıldığında dönen ikon animasyonu (135° rotasyon)
- * - Özelleştirilebilir arka plan rengi
- * - Özelleştirilebilir ripple rengi
- * - Özelleştirilebilir boyut (normal, mini veya custom)
- * - Özelleştirilebilir ikon boyutu ve tint rengi
+ * Features:
+ * - Rotating icon animation when menu opens (135° rotation)
+ * - Customizable background color
+ * - Customizable ripple color
+ * - Customizable size (normal, mini, or custom)
+ * - Customizable icon size and tint color
  *
- * ÖNEMLİ: Bu sınıfın ikon ayarları doğrudan yapılmamalıdır.
- * İkon değişiklikleri için [KarSuFabsMenu.setMenuButtonIcon] metodunu kullanın.
+ * IMPORTANT: Icon settings should not be made directly on this class.
+ * Use [KarSuFabsMenu.setMenuButtonIcon] method for icon changes.
  *
  * @see KarSuFabsMenu
  * @see KarsuTitleFab
  *
  * @author Erkan Kaplan
  * @since 1.0.0
+ * @date 2026-01-30
  */
 class KarSuMenuFabKarsu : KarsuTitleFab {
 

@@ -35,34 +35,34 @@ import karsu.libs.fabsmenu.enums.ExpandDirection
 import karsu.libs.fabsmenu.enums.LabelsPosition
 
 /**
- * Genişletilebilir Floating Action Button menü bileşeni.
+ * Expandable Floating Action Button menu component.
  *
- * Bu sınıf, Material Design 3 uyumlu, animasyonlu ve özelleştirilebilir bir
- * FAB menüsü oluşturur. Ana menü butonuna tıklandığında, alt FAB butonları
- * belirlenen yönde animasyonlu olarak açılır.
+ * This class creates a Material Design 3 compatible, animated, and customizable
+ * FAB menu. When the main menu button is clicked, child FAB buttons animate
+ * open in the specified direction.
  *
- * Temel Özellikler:
- * - 4 farklı açılma yönü: UP, DOWN, LEFT, RIGHT
- * - Özelleştirilebilir etiket konumu: LEFT, RIGHT
- * - Animasyonlu açılma/kapanma efektleri (OvershootInterpolator)
- * - Dönen menü butonu ikonu (135° rotasyon)
- * - RecyclerView entegrasyonu (scroll'da otomatik gizleme)
- * - Durum kaydetme/geri yükleme desteği
- * - Overlay entegrasyonu ([KarSuFabsMenuLayout] ile)
+ * Key Features:
+ * - 4 different expand directions: UP, DOWN, LEFT, RIGHT
+ * - Customizable label position: LEFT, RIGHT
+ * - Animated open/close effects (OvershootInterpolator)
+ * - Rotating menu button icon (135° rotation)
+ * - RecyclerView integration (auto-hide on scroll)
+ * - State save/restore support
+ * - Overlay integration (with [KarSuFabsMenuLayout])
  *
  * XML Attributes:
- * - `fab_moreButtonPlusIcon`: Menü butonu ikonu
- * - `fab_moreButtonBackgroundColor`: Menü butonu arka plan rengi
- * - `fab_moreButtonRippleColor`: Menü butonu ripple rengi
- * - `fab_moreButtonSize`: Menü butonu boyutu (normal, mini, auto)
- * - `fab_moreButtonCustomSize`: Özel menü butonu boyutu (dp)
- * - `fab_moreButtonIconSize`: Menü butonu ikon boyutu (dp)
- * - `fab_moreButtonIconTint`: Menü butonu ikon tint rengi
- * - `fab_menuMargins`: Menü kenar boşlukları
- * - `fab_expandDirection`: Açılma yönü (up, down, left, right)
- * - `fab_labelsPosition`: Etiket konumu (left, right)
+ * - `fab_moreButtonPlusIcon`: Menu button icon
+ * - `fab_moreButtonBackgroundColor`: Menu button background color
+ * - `fab_moreButtonRippleColor`: Menu button ripple color
+ * - `fab_moreButtonSize`: Menu button size (normal, mini, auto)
+ * - `fab_moreButtonCustomSize`: Custom menu button size (dp)
+ * - `fab_moreButtonIconSize`: Menu button icon size (dp)
+ * - `fab_moreButtonIconTint`: Menu button icon tint color
+ * - `fab_menuMargins`: Menu margins
+ * - `fab_expandDirection`: Expand direction (up, down, left, right)
+ * - `fab_labelsPosition`: Label position (left, right)
  *
- * Kullanım örneği:
+ * Usage example:
  * ```xml
  * <karsu.libs.fabsmenu.KarSuFabsMenu
  *     android:id="@+id/fabsMenu"
@@ -76,30 +76,30 @@ import karsu.libs.fabsmenu.enums.LabelsPosition
  *
  *     <karsu.libs.fabsmenu.KarsuTitleFab
  *         android:id="@+id/fabEdit"
- *         app:fab_title="Düzenle"
+ *         app:fab_title="Edit"
  *         ... />
  *
  * </karsu.libs.fabsmenu.KarSuFabsMenu>
  * ```
  *
- * Programatik Kullanım:
+ * Programmatic Usage:
  * ```kotlin
- * // Menüyü aç/kapat
+ * // Open/close menu
  * fabsMenu.expand()
  * fabsMenu.collapse()
  * fabsMenu.toggle()
  *
- * // Ayarları güncelle
+ * // Update settings
  * fabsMenu.updateExpandDirection(ExpandDirection.DOWN)
  * fabsMenu.updateLabelsPosition(LabelsPosition.RIGHT)
  * fabsMenu.setAnimationDuration(300)
  * fabsMenu.updateAllLabelsBackgroundColor(Color.WHITE)
  * ```
  *
- * İç Sınıflar:
- * - [RotatingDrawable]: Menü butonu için dönen ikon drawable'ı
- * - [SavedState]: Menü durumunu kaydetmek için Parcelable state sınıfı
- * - [LayoutParams]: Animasyon parametrelerini tutan özel layout params
+ * Inner Classes:
+ * - [RotatingDrawable]: Rotating icon drawable for menu button
+ * - [SavedState]: Parcelable state class for saving menu state
+ * - [LayoutParams]: Custom layout params holding animation parameters
  *
  * @see KarSuFabsMenuLayout
  * @see KarsuTitleFab
@@ -107,6 +107,7 @@ import karsu.libs.fabsmenu.enums.LabelsPosition
  *
  * @author Erkan Kaplan
  * @since 1.0.0
+ * @date 2026-01-30
  */
 @Suppress("unused")
 class KarSuFabsMenu : ViewGroup {

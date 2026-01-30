@@ -9,24 +9,24 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 
 /**
- * FAB menüsü için overlay (karartma) katmanı sağlayan container layout.
+ * Container layout that provides an overlay layer for the FAB menu.
  *
- * Bu sınıf, [KarSuFabsMenu] bileşenini sarmalayan ve menü açıldığında
- * arka planı karartmak için kullanılan bir FrameLayout'tur. Overlay
- * katmanı, kullanıcının dikkatini açık menüye çekmek ve menü dışı
- * alanlara tıklandığında menüyü kapatmak için kullanılır.
+ * This class is a FrameLayout that wraps the [KarSuFabsMenu] component and
+ * is used to dim the background when the menu is open. The overlay layer
+ * is used to draw the user's attention to the open menu and to close the
+ * menu when areas outside the menu are tapped.
  *
- * Özellikler:
- * - Özelleştirilebilir overlay rengi ve opaklığı
- * - Animasyonlu görünüm/kaybolma efekti
- * - Tıklanabilir overlay (menüyü kapatmak için)
- * - Programatik olarak açma/kapama kontrolü
+ * Features:
+ * - Customizable overlay color and opacity
+ * - Animated show/hide effect
+ * - Clickable overlay (to close the menu)
+ * - Programmatic open/close control
  *
  * XML Attributes:
- * - `fabs_menu_overlayColor`: Overlay rengi (örn: "#99000000")
- * - `fabs_menu_clickableOverlay`: Overlay'e tıklandığında menü kapansın mı (varsayılan: true)
+ * - `fabs_menu_overlayColor`: Overlay color (e.g., "#99000000")
+ * - `fabs_menu_clickableOverlay`: Should menu close when overlay is tapped (default: true)
  *
- * Kullanım örneği:
+ * Usage example:
  * ```xml
  * <karsu.libs.fabsmenu.KarSuFabsMenuLayout
  *     android:layout_width="match_parent"
@@ -44,6 +44,7 @@ import android.widget.FrameLayout
  *
  * @author Erkan Kaplan
  * @since 1.0.0
+ * @date 2026-01-30
  */
 class KarSuFabsMenuLayout : FrameLayout {
 

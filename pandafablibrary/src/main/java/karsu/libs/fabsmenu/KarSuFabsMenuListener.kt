@@ -1,29 +1,29 @@
 package karsu.libs.fabsmenu
 
 /**
- * FAB menüsü olaylarını dinleyen abstract listener sınıfı.
+ * Abstract listener class for FAB menu events.
  *
- * Bu sınıf, [KarSuFabsMenu] bileşeninin açılma, kapanma ve tıklama
- * olaylarını dinlemek için kullanılır. Uygulamalar bu sınıfı extend
- * ederek menü durumu değişikliklerine tepki verebilir.
+ * This class is used to listen for open, close, and click events
+ * of the [KarSuFabsMenu] component. Applications can extend this class
+ * to react to menu state changes.
  *
- * Kullanım örneği:
+ * Usage example:
  * ```kotlin
  * fabsMenu.menuListener = object : KarSuFabsMenuListener() {
  *     override fun onMenuExpanded(fabsMenu: KarSuFabsMenu) {
- *         // Menü açıldığında yapılacak işlemler
- *         Log.d("FABsMenu", "Menü açıldı")
+ *         // Actions when menu opens
+ *         Log.d("FABsMenu", "Menu expanded")
  *     }
  *
  *     override fun onMenuCollapsed(fabsMenu: KarSuFabsMenu) {
- *         // Menü kapandığında yapılacak işlemler
- *         Log.d("FABsMenu", "Menü kapandı")
+ *         // Actions when menu closes
+ *         Log.d("FABsMenu", "Menu collapsed")
  *     }
  * }
  * ```
  *
- * Bellek Sızıntısı Önleme:
- * Activity/Fragment destroy edildiğinde listener'ı null yapın:
+ * Memory Leak Prevention:
+ * Set the listener to null when Activity/Fragment is destroyed:
  * ```kotlin
  * override fun onDestroy() {
  *     super.onDestroy()
@@ -35,6 +35,7 @@ package karsu.libs.fabsmenu
  *
  * @author Erkan Kaplan
  * @since 1.0.0
+ * @date 2026-01-30
  */
 abstract class KarSuFabsMenuListener {
 

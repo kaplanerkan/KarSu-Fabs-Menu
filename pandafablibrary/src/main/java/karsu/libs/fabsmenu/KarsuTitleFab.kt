@@ -13,37 +13,37 @@ import androidx.interpolator.view.animation.LinearOutSlowInInterpolator
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 /**
- * Başlık etiketi olan Floating Action Button bileşeni.
+ * Floating Action Button component with title label.
  *
- * Bu sınıf, Material Design FloatingActionButton'ı genişleterek yanında
- * özelleştirilebilir bir metin etiketi görüntüleme özelliği ekler.
- * [KarSuFabsMenu] içinde kullanılan alt FAB butonlarını temsil eder.
+ * This class extends Material Design FloatingActionButton by adding
+ * a customizable text label display feature. It represents the child
+ * FAB buttons used within [KarSuFabsMenu].
  *
- * Özellikler:
- * - Özelleştirilebilir başlık metni (maksimum 25 karakter, sonrası "..." ile kesilir)
- * - Özelleştirilebilir etiket arka plan rengi
- * - Özelleştirilebilir etiket metin rengi
- * - Özelleştirilebilir etiket köşe yuvarlaklığı
- * - Özelleştirilebilir etiket padding'i
- * - Etiket tıklama etkinleştirme/devre dışı bırakma
- * - Animasyonlu show/hide desteği
+ * Features:
+ * - Customizable title text (maximum 25 characters, truncated with "..." after)
+ * - Customizable label background color
+ * - Customizable label text color
+ * - Customizable label corner radius
+ * - Customizable label padding
+ * - Label click enable/disable
+ * - Animated show/hide support
  *
  * XML Attributes:
- * - `fab_title`: Etiket metni
- * - `fab_enableTitleClick`: Etiket tıklanabilir mi (varsayılan: true)
- * - `fab_title_backgroundColor`: Etiket arka plan rengi
- * - `fab_title_textColor`: Etiket metin rengi
- * - `fab_title_cornerRadius`: Etiket köşe yuvarlaklığı
- * - `fab_title_textPadding`: Etiket iç boşluğu
+ * - `fab_title`: Label text
+ * - `fab_enableTitleClick`: Is label clickable (default: true)
+ * - `fab_title_backgroundColor`: Label background color
+ * - `fab_title_textColor`: Label text color
+ * - `fab_title_cornerRadius`: Label corner radius
+ * - `fab_title_textPadding`: Label inner padding
  *
- * Kullanım örneği:
+ * Usage example:
  * ```xml
  * <karsu.libs.fabsmenu.KarsuTitleFab
  *     android:id="@+id/fabEdit"
  *     android:layout_width="wrap_content"
  *     android:layout_height="wrap_content"
  *     android:src="@drawable/ic_edit"
- *     app:fab_title="Düzenle"
+ *     app:fab_title="Edit"
  *     app:fab_title_backgroundColor="@color/white"
  *     app:fab_title_textColor="@color/black"
  *     app:fab_title_cornerRadius="8dp"
@@ -55,6 +55,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
  *
  * @author Erkan Kaplan
  * @since 1.0.0
+ * @date 2026-01-30
  */
 open class KarsuTitleFab : FloatingActionButton {
 

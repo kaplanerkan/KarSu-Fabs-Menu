@@ -1,20 +1,21 @@
 package karsu.libs.fabsmenu.enums
 
 /**
- * FAB butonlarının etiket (label) konumunu belirleyen enum sınıfı.
+ * Enum class that defines the label position of FAB buttons.
  *
- * Bu enum, KarsuTitleFab bileşenlerinin yanında görünen metin etiketlerinin
- * FAB butonuna göre hangi tarafta konumlandırılacağını tanımlar.
+ * This enum defines on which side of the FAB button the text labels
+ * appearing next to KarsuTitleFab components will be positioned.
  *
- * Kullanılabilir konumlar:
- * - [LEFT]: Etiket FAB butonunun solunda görünür (varsayılan, sağ alt köşedeki menüler için ideal)
- * - [RIGHT]: Etiket FAB butonunun sağında görünür (sol alt köşedeki menüler için ideal)
+ * Available positions:
+ * - [LEFT]: Label appears on the left of the FAB button (default, ideal for bottom-right menus)
+ * - [RIGHT]: Label appears on the right of the FAB button (ideal for bottom-left menus)
  *
- * NOT: Bu ayar sadece UP ve DOWN açılma yönlerinde geçerlidir.
- * LEFT ve RIGHT yönlerinde etiketler gösterilmez.
+ * NOTE: This setting only applies to UP and DOWN expand directions.
+ * Labels are not displayed in LEFT and RIGHT directions.
  *
  * @author Erkan Kaplan
  * @since 1.0.0
+ * @date 2026-01-30
  */
 enum class LabelsPosition {
     LEFT, RIGHT;
