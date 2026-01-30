@@ -33,7 +33,10 @@ This project is inspired by and rewritten based on [FABsMenu by Jahir Fiquitiva]
 | ![Products](screenshots/scrcpy_zjUh6IlybJ.png) | ![Menu](screenshots/scrcpy_3YGnDE1t7G.png) | ![Popup](screenshots/scrcpy_qvQhDb3mve.png) |
 
 ### Demo Video
-📹 [Watch Demo Video](screenshots/scrcpy_j6ta0a6sKn.mp4)
+
+https://github.com/kaplanerkan/KarSu-Fabs-Menu/assets/screenshots/scrcpy_j6ta0a6sKn.mp4
+
+> **Not:** Video oynatılmıyorsa, GitHub web arayüzünden Issue/PR oluşturup videoyu sürükle-bırak ile yükleyebilirsiniz. Bu sayede otomatik oynatılan bir video linki oluşturulur.
 
 ## Installation
 

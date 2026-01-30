@@ -8,6 +8,31 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 
+/**
+ * FAB butonlarının yanında görünen etiket (label) görünümü.
+ *
+ * Bu sınıf, [KarsuTitleFab] butonlarının yanında görünen metin etiketlerini
+ * oluşturmak için kullanılan özel bir CardView'dır. Etiketler, kullanıcıya
+ * her FAB butonunun işlevini açıklamak için kullanılır.
+ *
+ * Özellikler:
+ * - Özelleştirilebilir arka plan rengi
+ * - Özelleştirilebilir metin rengi
+ * - Özelleştirilebilir köşe yuvarlaklığı (CardView radius)
+ * - Tıklanabilir/tıklanamaz mod desteği
+ * - Ripple efekti desteği (tıklanabilir modda)
+ *
+ * XML Attributes:
+ * - `fab_title_backgroundColor`: Etiket arka plan rengi
+ * - `fab_title_textColor`: Etiket metin rengi
+ * - `fab_title_cornerRadius`: Köşe yuvarlaklığı
+ *
+ * @see KarsuTitleFab
+ * @see KarSuFabsMenu
+ *
+ * @author Erkan Kaplan
+ * @since 1.0.0
+ */
 class KarSuLabelView : CardView {
 
     private var labelBackgroundColor: Int = Color.WHITE

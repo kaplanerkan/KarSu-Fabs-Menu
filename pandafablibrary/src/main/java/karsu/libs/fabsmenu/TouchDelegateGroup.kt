@@ -5,6 +5,24 @@ import android.view.MotionEvent
 import android.view.TouchDelegate
 import android.view.View
 
+/**
+ * Birden fazla TouchDelegate'i yöneten grup sınıfı.
+ *
+ * Bu sınıf, FAB menüsündeki butonların dokunma alanlarını genişletmek için
+ * kullanılır. Özellikle küçük FAB butonlarının daha kolay tıklanabilmesi için
+ * dokunma alanlarını büyütür.
+ *
+ * Özellikler:
+ * - Birden fazla TouchDelegate'i tek bir grupta yönetir
+ * - Dokunma olaylarını ilgili delegate'e yönlendirir
+ * - Etkinleştirme/devre dışı bırakma desteği sunar
+ * - ACTION_DOWN, ACTION_MOVE, ACTION_UP ve ACTION_CANCEL olaylarını işler
+ *
+ * @param uselessHackyView TouchDelegate için gerekli olan boş view referansı
+ *
+ * @author Erkan Kaplan
+ * @since 1.0.0
+ */
 class TouchDelegateGroup(uselessHackyView: View) : TouchDelegate(USELESS_HACKY_RECT, uselessHackyView) {
 
     companion object {

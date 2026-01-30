@@ -34,6 +34,80 @@ import androidx.core.view.isGone
 import karsu.libs.fabsmenu.enums.ExpandDirection
 import karsu.libs.fabsmenu.enums.LabelsPosition
 
+/**
+ * Genişletilebilir Floating Action Button menü bileşeni.
+ *
+ * Bu sınıf, Material Design 3 uyumlu, animasyonlu ve özelleştirilebilir bir
+ * FAB menüsü oluşturur. Ana menü butonuna tıklandığında, alt FAB butonları
+ * belirlenen yönde animasyonlu olarak açılır.
+ *
+ * Temel Özellikler:
+ * - 4 farklı açılma yönü: UP, DOWN, LEFT, RIGHT
+ * - Özelleştirilebilir etiket konumu: LEFT, RIGHT
+ * - Animasyonlu açılma/kapanma efektleri (OvershootInterpolator)
+ * - Dönen menü butonu ikonu (135° rotasyon)
+ * - RecyclerView entegrasyonu (scroll'da otomatik gizleme)
+ * - Durum kaydetme/geri yükleme desteği
+ * - Overlay entegrasyonu ([KarSuFabsMenuLayout] ile)
+ *
+ * XML Attributes:
+ * - `fab_moreButtonPlusIcon`: Menü butonu ikonu
+ * - `fab_moreButtonBackgroundColor`: Menü butonu arka plan rengi
+ * - `fab_moreButtonRippleColor`: Menü butonu ripple rengi
+ * - `fab_moreButtonSize`: Menü butonu boyutu (normal, mini, auto)
+ * - `fab_moreButtonCustomSize`: Özel menü butonu boyutu (dp)
+ * - `fab_moreButtonIconSize`: Menü butonu ikon boyutu (dp)
+ * - `fab_moreButtonIconTint`: Menü butonu ikon tint rengi
+ * - `fab_menuMargins`: Menü kenar boşlukları
+ * - `fab_expandDirection`: Açılma yönü (up, down, left, right)
+ * - `fab_labelsPosition`: Etiket konumu (left, right)
+ *
+ * Kullanım örneği:
+ * ```xml
+ * <karsu.libs.fabsmenu.KarSuFabsMenu
+ *     android:id="@+id/fabsMenu"
+ *     android:layout_width="wrap_content"
+ *     android:layout_height="wrap_content"
+ *     android:layout_gravity="bottom|end"
+ *     app:fab_moreButtonPlusIcon="@drawable/ic_plus"
+ *     app:fab_moreButtonBackgroundColor="@color/turquoise"
+ *     app:fab_expandDirection="up"
+ *     app:fab_labelsPosition="left">
+ *
+ *     <karsu.libs.fabsmenu.KarsuTitleFab
+ *         android:id="@+id/fabEdit"
+ *         app:fab_title="Düzenle"
+ *         ... />
+ *
+ * </karsu.libs.fabsmenu.KarSuFabsMenu>
+ * ```
+ *
+ * Programatik Kullanım:
+ * ```kotlin
+ * // Menüyü aç/kapat
+ * fabsMenu.expand()
+ * fabsMenu.collapse()
+ * fabsMenu.toggle()
+ *
+ * // Ayarları güncelle
+ * fabsMenu.updateExpandDirection(ExpandDirection.DOWN)
+ * fabsMenu.updateLabelsPosition(LabelsPosition.RIGHT)
+ * fabsMenu.setAnimationDuration(300)
+ * fabsMenu.updateAllLabelsBackgroundColor(Color.WHITE)
+ * ```
+ *
+ * İç Sınıflar:
+ * - [RotatingDrawable]: Menü butonu için dönen ikon drawable'ı
+ * - [SavedState]: Menü durumunu kaydetmek için Parcelable state sınıfı
+ * - [LayoutParams]: Animasyon parametrelerini tutan özel layout params
+ *
+ * @see KarSuFabsMenuLayout
+ * @see KarsuTitleFab
+ * @see KarSuFabsMenuListener
+ *
+ * @author Erkan Kaplan
+ * @since 1.0.0
+ */
 @Suppress("unused")
 class KarSuFabsMenu : ViewGroup {
 
