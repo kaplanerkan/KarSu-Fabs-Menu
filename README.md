@@ -34,7 +34,7 @@ This project is inspired by and rewritten based on [FABsMenu by Jahir Fiquitiva]
 
 ### Demo Video
 
-<video src="screenshots/scrcpy_j6ta0a6sKn.mp4" controls width="100%"></video>
+<video src="https://raw.githubusercontent.com/kaplanerkan/KarSu-Fabs-Menu/main/screenshots/scrcpy_j6ta0a6sKn.mp4" controls width="100%"></video>
 
 ## Installation
 
