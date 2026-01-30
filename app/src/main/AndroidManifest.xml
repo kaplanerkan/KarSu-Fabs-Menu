@@ -12,14 +12,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PandaFabsMenu">
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".LauncherActivity"
+            android:exported="true"
+            android:theme="@style/Theme.PandaFabsMenu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".compose.ComposeMainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.PandaFabsMenu" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
         <activity
             android:name=".ProductListActivity"
             android:exported="false"

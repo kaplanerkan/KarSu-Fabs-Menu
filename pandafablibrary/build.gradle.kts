@@ -1,10 +1,11 @@
 plugins {
     alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.compose)
     `maven-publish`
     signing
 }
 
-val libraryVersion = "1.1.0"
+val libraryVersion = "1.2.0"
 val libraryGroupId = "io.github.kaplanerkan"
 val libraryArtifactId = "karsu-fabs-menu"
 
@@ -38,6 +39,10 @@ android {
         checkReleaseBuilds = false
     }
 
+    buildFeatures {
+        compose = true
+    }
+
     publishing {
         singleVariant("release") {
             withSourcesJar()
@@ -50,6 +55,17 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.material)
     implementation("androidx.cardview:cardview:1.0.0")
+
+    // Compose
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.ui.graphics)
+    implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.animation)
+    implementation(libs.androidx.compose.foundation)
+    implementation(libs.androidx.compose.material.icons.extended)
+    debugImplementation(libs.androidx.compose.ui.tooling)
+    implementation(libs.androidx.compose.ui.tooling.preview)
 }
 
 afterEvaluate {

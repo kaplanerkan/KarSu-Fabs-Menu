@@ -2,6 +2,8 @@
 
 A beautiful, customizable Floating Action Button (FAB) menu library for Android with Material Design 3 support. Create expandable FAB menus with smooth animations, title labels, and overlay effects.
 
+**Now with Jetpack Compose support!** 🎉
+
 ## Acknowledgments
 
 This project is inspired by and rewritten based on [FABsMenu by Jahir Fiquitiva](https://github.com/jahirfiquitiva/FABsMenu). The original library provided the foundational concepts and design patterns that made this implementation possible. Thank you to Jahir Fiquitiva for the excellent work!
@@ -9,6 +11,7 @@ This project is inspired by and rewritten based on [FABsMenu by Jahir Fiquitiva]
 ![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg)
 ![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)
 ![Kotlin](https://img.shields.io/badge/Kotlin-1.9+-purple.svg)
+![Compose](https://img.shields.io/badge/Jetpack%20Compose-1.7+-green.svg)
 
 ## Features
 
@@ -46,7 +49,7 @@ Add the dependency to your app's `build.gradle.kts`:
 
 ```kotlin
 dependencies {
-    implementation("io.github.kaplanerkan:karsu-fabs-menu:1.1.0")
+    implementation("io.github.kaplanerkan:karsu-fabs-menu:1.2.0")
 }
 ```
 
@@ -54,7 +57,7 @@ Or for Groovy (`build.gradle`):
 
 ```groovy
 dependencies {
-    implementation 'io.github.kaplanerkan:karsu-fabs-menu:1.1.0'
+    implementation 'io.github.kaplanerkan:karsu-fabs-menu:1.2.0'
 }
 ```
 
@@ -438,14 +441,324 @@ class ProductAdapter(
 - Implement `onViewRecycled()` to clean up resources
 - Use `collapseImmediately()` for instant collapse without animation during recycling
 
+---
+
+## Jetpack Compose
+
+The library now includes full Jetpack Compose support with a modern DSL-based API.
+
+### Compose Features
+
+- **DSL-based API** - Intuitive Kotlin DSL for defining menu items
+- **State Management** - Built-in state holder with configuration change survival
+- **Smooth Animations** - Overshoot animations with staggered item reveals
+- **Overlay Support** - Optional backdrop overlay when menu is expanded
+- **Flexible Positioning** - Expand in 4 directions (UP, DOWN, LEFT, RIGHT)
+- **Customizable Labels** - Position labels on LEFT or RIGHT of FAB items
+- **Theme Support** - CompositionLocal-based theming
+
+### Basic Compose Usage
+
+#### 1. Add the dependency
+
+```kotlin
+dependencies {
+    implementation("io.github.kaplanerkan:karsu-fabs-menu:1.2.0")
+}
+```
+
+#### 2. Simple FAB Menu
+
+```kotlin
+@Composable
+fun MyScreen() {
+    val fabsMenuState = rememberFabsMenuState()
+
+    KarSuFabsMenu(
+        state = fabsMenuState,
+        expandDirection = ExpandDirection.UP,
+        labelsPosition = LabelsPosition.LEFT,
+        menuButtonConfig = FabsMenuDefaults.menuButtonConfig(
+            backgroundColor = Color(0xFFE91E63)
+        )
+    ) {
+        item(
+            id = "download",
+            icon = Icons.Default.Download,
+            label = "Download",
+            fabConfig = FabsMenuDefaults.fabItemConfig(
+                backgroundColor = Color(0xFF2196F3)
+            )
+        ) {
+            fabsMenuState.collapse()
+            // Handle click
+        }
+
+        item(
+            id = "share",
+            icon = Icons.Default.Share,
+            label = "Share",
+            fabConfig = FabsMenuDefaults.fabItemConfig(
+                backgroundColor = Color(0xFF4CAF50)
+            )
+        ) {
+            fabsMenuState.collapse()
+            // Handle click
+        }
+    }
+}
+```
+
+#### 3. Full-Screen Layout with Overlay
+
+Use `KarSuFabsMenuLayout` for a complete screen setup with overlay support:
+
+```kotlin
+@Composable
+fun MainScreen() {
+    val fabsMenuState = rememberFabsMenuState()
+
+    Scaffold(
+        topBar = { /* Your TopAppBar */ }
+    ) { paddingValues ->
+        KarSuFabsMenuLayout(
+            modifier = Modifier.padding(paddingValues),
+            state = fabsMenuState,
+            expandDirection = ExpandDirection.UP,
+            labelsPosition = LabelsPosition.LEFT,
+            menuButtonConfig = FabsMenuDefaults.menuButtonConfig(
+                backgroundColor = Color(0xFFE91E63)
+            ),
+            overlayColor = Color.Black.copy(alpha = 0.5f),
+            closeOnOverlayClick = true,
+            content = {
+                // Your main screen content here
+                LazyColumn {
+                    items(items) { item ->
+                        ItemCard(item)
+                    }
+                }
+            },
+            fabContent = {
+                item(
+                    id = "camera",
+                    icon = Icons.Default.CameraAlt,
+                    label = "Camera"
+                ) {
+                    fabsMenuState.collapse()
+                }
+
+                item(
+                    id = "edit",
+                    icon = Icons.Default.Edit,
+                    label = "Edit"
+                ) {
+                    fabsMenuState.collapse()
+                }
+            }
+        )
+    }
+}
+```
+
+#### 4. FAB Menu Inside List Items
+
+Perfect for per-item action menus in LazyColumn:
+
+```kotlin
+@Composable
+fun ProductCard(
+    product: Product,
+    onActionClick: (ProductAction) -> Unit
+) {
+    val fabsMenuState = rememberFabsMenuState()
+
+    Box(modifier = Modifier.fillMaxWidth()) {
+        // Card content
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(end = 20.dp)
+        ) {
+            // Product info
+        }
+
+        // FAB Menu - positioned at top right, expands down
+        Box(
+            modifier = Modifier
+                .align(Alignment.TopEnd)
+                .padding(top = 4.dp)
+        ) {
+            KarSuFabsMenu(
+                state = fabsMenuState,
+                expandDirection = ExpandDirection.DOWN,
+                labelsPosition = LabelsPosition.LEFT,
+                menuButtonConfig = FabsMenuDefaults.menuButtonConfig(
+                    icon = Icons.Default.MoreVert,
+                    backgroundColor = Color(0xFF26A69A),
+                    size = FabSize.Mini
+                ),
+                itemSpacing = 6.dp
+            ) {
+                item(
+                    id = "print",
+                    icon = Icons.Default.Print,
+                    label = "Print",
+                    fabConfig = FabsMenuDefaults.fabItemConfig(
+                        backgroundColor = Color(0xFF00BCD4),
+                        size = FabSize.Mini
+                    )
+                ) {
+                    fabsMenuState.collapse()
+                    onActionClick(ProductAction.PRINT)
+                }
+
+                item(
+                    id = "edit",
+                    icon = Icons.Default.Edit,
+                    label = "Edit",
+                    fabConfig = FabsMenuDefaults.fabItemConfig(
+                        backgroundColor = Color(0xFF00897B),
+                        size = FabSize.Mini
+                    )
+                ) {
+                    fabsMenuState.collapse()
+                    onActionClick(ProductAction.EDIT)
+                }
+
+                item(
+                    id = "delete",
+                    icon = Icons.Default.Delete,
+                    label = "Delete",
+                    fabConfig = FabsMenuDefaults.fabItemConfig(
+                        backgroundColor = Color(0xFFF44336),
+                        size = FabSize.Mini
+                    )
+                ) {
+                    fabsMenuState.collapse()
+                    onActionClick(ProductAction.DELETE)
+                }
+            }
+        }
+    }
+}
+```
+
+### Compose API Reference
+
+#### FabsMenuState
+
+```kotlin
+// Create and remember state
+val state = rememberFabsMenuState(initialExpanded = false)
+
+// Control the menu
+state.expand()      // Expand the menu
+state.collapse()    // Collapse the menu
+state.toggle()      // Toggle expand/collapse
+state.isExpanded    // Check if menu is expanded
+```
+
+#### KarSuFabsMenu Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `state` | `FabsMenuState` | `rememberFabsMenuState()` | State holder for the menu |
+| `expandDirection` | `ExpandDirection` | `UP` | Direction to expand (UP, DOWN, LEFT, RIGHT) |
+| `labelsPosition` | `LabelsPosition` | `LEFT` | Position of labels (LEFT, RIGHT) |
+| `menuButtonConfig` | `MenuButtonConfig` | Default pink FAB | Configuration for menu button |
+| `animationDurationMs` | `Int` | `300` | Animation duration in milliseconds |
+| `itemSpacing` | `Dp` | `16.dp` | Spacing between FAB items |
+| `onMenuExpanded` | `() -> Unit` | `{}` | Callback when menu is fully expanded |
+| `onMenuCollapsed` | `() -> Unit` | `{}` | Callback when menu is fully collapsed |
+
+#### MenuButtonConfig
+
+```kotlin
+FabsMenuDefaults.menuButtonConfig(
+    icon = Icons.Default.Add,           // Menu button icon
+    backgroundColor = Color(0xFFE91E63), // Background color
+    iconTint = Color.White,              // Icon tint color
+    size = FabSize.Normal,               // FabSize.Normal or FabSize.Mini
+    rotationAngle = 135f                 // Rotation angle when expanded
+)
+```
+
+#### FabItemConfig
+
+```kotlin
+FabsMenuDefaults.fabItemConfig(
+    backgroundColor = Color(0xFF2196F3), // FAB background color
+    iconTint = Color.White,              // Icon tint color
+    size = FabSize.Mini                  // FabSize.Normal or FabSize.Mini
+)
+```
+
+#### LabelConfig
+
+```kotlin
+FabsMenuDefaults.labelConfig(
+    backgroundColor = Color.White,  // Label background
+    textColor = Color.Black,        // Label text color
+    cornerRadius = 4.dp,            // Corner radius
+    clickable = true                // Enable label click
+)
+```
+
+#### DSL Item Function
+
+```kotlin
+item(
+    id = "unique_id",                    // Unique identifier
+    icon = Icons.Default.Download,       // Item icon
+    label = "Download",                  // Optional label text
+    contentDescription = "Download",     // Accessibility description
+    fabConfig = FabsMenuDefaults.fabItemConfig(),
+    labelConfig = FabsMenuDefaults.labelConfig(),
+    enabled = true,                      // Whether item is enabled
+    onClick = { }                        // Click handler
+)
+```
+
+### Compose Theming
+
+You can customize the default theme using `FabsMenuTheme`:
+
+```kotlin
+FabsMenuTheme(
+    colors = FabsMenuColors(
+        menuButtonBackground = Color(0xFFE91E63),
+        menuButtonIcon = Color.White,
+        fabItemBackground = Color(0xFF2196F3),
+        fabItemIcon = Color.White,
+        labelBackground = Color.White,
+        labelText = Color.Black,
+        overlay = Color.Black.copy(alpha = 0.5f)
+    )
+) {
+    // Your content with themed FAB menus
+    KarSuFabsMenu { /* ... */ }
+}
+```
+
+---
+
 ## Sample App
 
-The repository includes a sample app demonstrating:
+The repository includes a sample app demonstrating both View-based and Compose implementations:
 
+### View-Based Demo
 - Basic FABsMenu usage with 5 action buttons
 - Live settings panel to customize all properties in real-time
 - Product list with per-item FABsMenu integration
 - Action popup feedback when items are clicked
+
+### Jetpack Compose Demo
+- Main screen with FABsMenu and overlay backdrop
+- Settings bottom sheet for live customization
+- Product list with per-item FAB menus (expand down)
+- Action info popup showing product details for 5 seconds
+- Preview composables for all screens and components
 
 ## Requirements
 
@@ -465,6 +778,27 @@ dependencies {
 ```
 
 ## Changelog
+
+### Version 1.2.0
+- **Jetpack Compose Support:**
+  - Added `KarSuFabsMenu` composable with DSL-based API
+  - Added `KarSuFabsMenuLayout` for full-screen layouts with overlay
+  - Added `KarSuFabsMenuScaffold` for simplified positioning
+  - Added `FabMenuItem` and `FabMenuLabel` composables
+  - Added `FabsMenuState` with `rememberFabsMenuState()` for state management
+  - Added `FabsMenuDefaults` for default configurations
+  - Added `FabsMenuTheme` with `CompositionLocal` support
+  - Smooth overshoot animations with staggered item reveals
+  - Support for all 4 expand directions (UP, DOWN, LEFT, RIGHT)
+  - Label positioning (LEFT, RIGHT)
+  - Mini and Normal FAB sizes
+  - Preview composables for all components
+
+- **Sample App:**
+  - Added launcher activity to choose between View and Compose demos
+  - Added Compose main screen with settings bottom sheet
+  - Added Compose product list with per-item FAB menus
+  - Added action info popup with 5-second auto-dismiss
 
 ### Version 1.1.0
 - **New Features:**
