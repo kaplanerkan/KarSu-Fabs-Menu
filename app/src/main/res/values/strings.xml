@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Panda Fabs Menu</string>
+    <string name="dp_format">%1$ddp</string>
+    <string name="ms_format">%1$dms</string>
+
+    <!-- Main Activity -->
+    <string name="open_settings">Open Settings</string>
+    <string name="features_title">Features</string>
+
+    <!-- Feature 1: Expandable Menu -->
+    <string name="feature_expandable_title">Expandable Menu</string>
+    <string name="feature_expandable_desc">Smooth animations with customizable expand directions</string>
+
+    <!-- Feature 2: Title Labels -->
+    <string name="feature_labels_title">Title Labels</string>
+    <string name="feature_labels_desc">Each FAB can have a customizable title label</string>
+
+    <!-- Feature 3: Overlay Support -->
+    <string name="feature_overlay_title">Overlay Support</string>
+    <string name="feature_overlay_desc">Optional overlay that dims the background when menu is open</string>
+
+    <!-- Feature 4: Live Settings -->
+    <string name="feature_settings_title">Live Settings</string>
+    <string name="feature_settings_desc">Customize all menu properties in real-time without restart</string>
+
+    <!-- Try It Card -->
+    <string name="try_it_title">Try It!</string>
+    <string name="try_it_desc">Tap the floating action button in the bottom right corner to see the menu in action.</string>
+
+    <!-- Product List Activity -->
+    <string name="products_title">Products</string>
+    <string name="view_products">View Products</string>
+
+    <!-- Product Actions -->
+    <string name="action_print">Print</string>
+    <string name="action_change_price">Change Price</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_delete">Delete</string>
+
+    <!-- Action Popup -->
+    <string name="popup_title">Action Clicked!</string>
+    <string name="popup_details_format">ID: %1$d | Price: %2$s</string>
+    <string name="countdown_format">Closing in %1$ds</string>
+    <string name="timer_icon_desc">Timer</string>
+</resources>

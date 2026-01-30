@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="define_FABsMenu">KarSu FABs Menu</string>
+    <string name="library_FABsMenu_author">Erkan Kaplan</string>
+    <string name="library_FABsMenu_authorWebsite">http://www.linux-sevenler.org</string>
+    <string name="library_FABsMenu_libraryName">KarSu FABs Menu Library</string>
+    <string name="library_FABsMenu_libraryDescription">A simple library to use a menu of FloatingActionButtons. Inspired by FABsMenu by Jahir Fiquitiva.</string>
+    <string name="library_FABsMenu_libraryVersion">1.1.0</string>
+    <string name="library_FABsMenu_libraryWebsite">https://github.com/jahirfiquitiva/FABsMenu</string>
+    <string name="library_FABsMenu_licenseId">apache_2_0</string>
+    <string name="library_FABsMenu_isOpenSource">true</string>
+    <string name="library_FABsMenu_repositoryLink">https://github.com/jahirfiquitiva/FABsMenu</string>
+    <string name="library_FABsMenu_classPath">karsu.libs.fabsmenu</string>
+</resources>

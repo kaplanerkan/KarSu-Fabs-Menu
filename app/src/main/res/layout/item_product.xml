@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="6dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="2dp">
+
+        <!-- Content Layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="12dp"
+            android:paddingEnd="40dp"
+            android:paddingVertical="12dp"
+            android:gravity="center_vertical">
+
+            <!-- Product Icon -->
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imgProduct"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/colorPrimaryContainer"
+                android:padding="10dp"
+                android:src="@drawable/ic_product"
+                app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full"
+                app:tint="?attr/colorOnPrimaryContainer" />
+
+            <!-- Text Content -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="12dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtProductName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textAppearance="?attr/textAppearanceBodyLarge"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textStyle="bold"
+                    tools:text="Product Name" />
+
+                <TextView
+                    android:id="@+id/txtProductDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textSize="11sp"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    tools:text="Product description" />
+
+                <TextView
+                    android:id="@+id/txtProductPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceLabelLarge"
+                    android:textColor="?attr/colorPrimary"
+                    android:textStyle="bold"
+                    tools:text="$149.99" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- FABs Menu - Floating Top Right (outside CardView) -->
+    <karsu.libs.fabsmenu.KarSuFabsMenu
+        android:id="@+id/fabsMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="0dp"
+        android:clipChildren="false"
+        android:translationZ="10dp"
+        app:fab_expandDirection="down"
+        app:fab_labelsPosition="left"
+        app:fab_menuMargins="0dp"
+        app:fab_moreButtonBackgroundColor="@color/fab_turquoise"
+        app:fab_moreButtonCustomSize="32dp"
+        app:fab_moreButtonIconSize="14dp"
+        app:fab_moreButtonIconTint="@color/white"
+        app:fab_moreButtonPlusIcon="@drawable/ic_more_vert"
+        app:fab_moreButtonRippleColor="@color/fab_turquoise_dark"
+        app:fab_moreButtonSize="auto">
+
+        <karsu.libs.fabsmenu.KarsuTitleFab
+            android:id="@+id/fabPrint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_print"
+            app:backgroundTint="@color/fab_cyan"
+            app:fabSize="mini"
+            app:fab_title="Print"
+            app:fab_title_backgroundColor="@color/white"
+            app:fab_title_cornerRadius="8dp"
+            app:fab_title_textColor="@color/md_theme_light_primary"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
+            app:tint="@color/md_theme_light_primary" />
+
+        <karsu.libs.fabsmenu.KarsuTitleFab
+            android:id="@+id/fabPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_price"
+            app:backgroundTint="@color/fab_teal"
+            app:fabSize="mini"
+            app:fab_title="Change Price"
+            app:fab_title_backgroundColor="@color/white"
+            app:fab_title_cornerRadius="8dp"
+            app:fab_title_textColor="@color/md_theme_light_primary"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
+            app:tint="@color/white" />
+
+        <karsu.libs.fabsmenu.KarsuTitleFab
+            android:id="@+id/fabEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_pencil"
+            app:backgroundTint="@color/fab_turquoise_dark"
+            app:fabSize="mini"
+            app:fab_title="Edit"
+            app:fab_title_backgroundColor="@color/fab_turquoise_dark"
+            app:fab_title_cornerRadius="8dp"
+            app:fab_title_textColor="@color/white"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
+            app:tint="@color/white" />
+
+        <karsu.libs.fabsmenu.KarsuTitleFab
+            android:id="@+id/fabDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_delete"
+            app:backgroundTint="@color/md_theme_light_error"
+            app:fabSize="mini"
+            app:fab_title="Delete"
+            app:fab_title_backgroundColor="@color/md_theme_light_errorContainer"
+            app:fab_title_cornerRadius="8dp"
+            app:fab_title_textColor="@color/md_theme_light_onErrorContainer"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
+            app:tint="@color/white" />
+
+    </karsu.libs.fabsmenu.KarSuFabsMenu>
+
+</FrameLayout>
