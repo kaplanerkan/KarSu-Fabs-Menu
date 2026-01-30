@@ -1,6 +1,7 @@
 # KarSu FABs Menu
 
-> **What is KarSu?** KarSu is my little angel. :-)
+> **Who is KarSu?** 
+> KarSu is my little angel. :-)
 >
 > ![KarSu](screenshots/karsu.png)
 
