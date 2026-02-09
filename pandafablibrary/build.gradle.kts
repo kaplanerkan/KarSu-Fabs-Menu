@@ -116,7 +116,6 @@ afterEvaluate {
         }
     }
 
-    // Only sign when not building on JitPack
     if (System.getenv("JITPACK") == null) {
         signing {
             useGpgCmd()
