@@ -52,6 +52,7 @@ android {
 }
 
 dependencies {
+    testImplementation(libs.junit)
     implementation(libs.androidx.core.ktx)
     implementation(libs.material)
     implementation("androidx.cardview:cardview:1.0.0")
