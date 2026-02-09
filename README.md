@@ -13,6 +13,8 @@ A beautiful, customizable Floating Action Button (FAB) menu library for Android 
 
 This project is inspired by and rewritten based on [FABsMenu by Jahir Fiquitiva](https://github.com/jahirfiquitiva/FABsMenu). The original library provided the foundational concepts and design patterns that made this implementation possible. Thank you to Jahir Fiquitiva for the excellent work!
 
+[![](https://jitpack.io/v/kaplanerkan/KarSu-Fabs-Menu.svg)](https://jitpack.io/#kaplanerkan/KarSu-Fabs-Menu)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.kaplanerkan/karsu-fabs-menu.svg)](https://central.sonatype.com/artifact/io.github.kaplanerkan/karsu-fabs-menu)
 ![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg)
 ![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)
 ![Kotlin](https://img.shields.io/badge/Kotlin-1.9+-purple.svg)
@@ -46,7 +48,51 @@ https://github.com/user-attachments/assets/3ce0be38-edaa-4915-9990-c1ee526052bc
 
 ## Installation
 
-### Gradle (Maven Central)
+### Option 1: JitPack (Recommended)
+
+[![](https://jitpack.io/v/kaplanerkan/KarSu-Fabs-Menu.svg)](https://jitpack.io/#kaplanerkan/KarSu-Fabs-Menu)
+
+**Step 1.** Add JitPack repository to your `settings.gradle.kts`:
+
+```kotlin
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url = uri("https://jitpack.io") }
+    }
+}
+```
+
+Or for Groovy (`settings.gradle`):
+
+```groovy
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+**Step 2.** Add the dependency to your app's `build.gradle.kts`:
+
+```kotlin
+dependencies {
+    implementation("com.github.kaplanerkan:KarSu-Fabs-Menu:1.2.0")
+}
+```
+
+Or for Groovy (`build.gradle`):
+
+```groovy
+dependencies {
+    implementation 'com.github.kaplanerkan:KarSu-Fabs-Menu:1.2.0'
+}
+```
+
+### Option 2: Maven Central
 
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.kaplanerkan/karsu-fabs-menu.svg)](https://central.sonatype.com/artifact/io.github.kaplanerkan/karsu-fabs-menu)
 
