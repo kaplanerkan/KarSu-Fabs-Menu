@@ -116,9 +116,12 @@ afterEvaluate {
         }
     }
 
-    signing {
-        useGpgCmd()
-        sign(publishing.publications["release"])
+    // Only sign when not building on JitPack
+    if (System.getenv("JITPACK") == null) {
+        signing {
+            useGpgCmd()
+            sign(publishing.publications["release"])
+        }
     }
 }
 
